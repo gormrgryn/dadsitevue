@@ -1,6 +1,6 @@
 <template>
   <div class="slidebg" id="sli">
-    <div class="slideshow" id="slideshow" ref="slideshow">
+    <div class="slideshow" ref="slideshow">
       <div class="grads">
         <div class="arrow_left" @click="slideleft">
           <span class="arrow arrowleft"></span>
@@ -28,9 +28,7 @@ export default {
       slpr: false
     };
   },
-  mounted() {
-    document.getElementById("sli").style.height = document.documentElement.clientHeight + "px";
-  },
+  mounted() {},
   methods: {
     slide(e) {
       this.slpr = true
@@ -59,8 +57,13 @@ export default {
 </script>
 
 <style>
-.slideshow {
+.slidebg {
+  background-color: black;
   height: 100%;
+  z-index: -1;
+}
+.slideshow {
+  height: 100vh;
   -webkit-transition: all 0.6s ease;
   transition: all 0.6s ease;
   background-image: url("https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6726719ee78dabe78033950d9f3f7145&w=1000&q=80");
@@ -90,8 +93,8 @@ export default {
   display: inline-block;
   height: 20px;
   width: 20px;
-  border-right: 4px solid whitesmoke;
-  border-bottom: 4px solid whitesmoke;
+  border-right: 2px solid whitesmoke;
+  border-bottom: 2px solid whitesmoke;
   margin: 0.3em;
   transition: 0.6s;
 }
@@ -107,10 +110,5 @@ export default {
 .grads {
   height: 100%;
   background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 30%, rgba(255,255,255,0) 70%, rgba(0,0,0,1) 100%);
-}
-.slidebg {
-  background-color: black;
-  height: 100%;
-  z-index: -1;
 }
 </style>

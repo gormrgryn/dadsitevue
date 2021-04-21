@@ -1,6 +1,8 @@
 <template>
-  <NavBar></NavBar>
-  <router-view/>
+  <div>
+    <NavBar></NavBar>
+    <router-view/>
+  </div>
 </template>
 
 <script>
@@ -23,5 +25,9 @@ body {
   background-color: black;
   color: white;
   font-family: "Quicksand", sans-serif;
+  height: 100vh;
+}
+#app {
+  height: 100vh
 }
 </style>

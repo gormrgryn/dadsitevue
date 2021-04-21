@@ -28,50 +28,50 @@
 	}
 </script>
 <style>
-	.navbar {
-		height: 5em;
-		padding: 0 2em;
-		line-height: 5em;
-		width: calc(100% - 4em);
-		color: whitesmoke;
-		z-index: 1;
-		position: fixed;
-		top: 0;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		font-size: 1.1em;
-		-webkit-transition: all 0.4s ease;
-		transition: all 0.4s ease;
-	}
-	.trans {
-		background: none;
-	}
-	.str {
-		background: black;
-	}
-	.bgh {
-		height: 4em
-	}
-	.navbar > h2 {
-		float: left;
-		width: 70%;
-		display: inline-block;
-		margin: 0;
-	}
-	.navbar > ul {
-		margin: 0;
-		list-style: none;
-		display: inline-flex;
-		justify-content: space-around;
-		position: relative;
-		left: 2em;
-		align-items: center;
-		float: left;
-		width: 20%
-	}
-	a {
-		text-decoration: none;
-		color: whitesmoke
-	}
+.navbar {
+	height: 5em;
+	padding: 0 2em;
+	line-height: 5em;
+	width: calc(100% - 4em);
+	color: whitesmoke;
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-size: 1.1em;
+	-webkit-transition: all 0.4s ease;
+	transition: all 0.4s ease;
+}
+.trans {
+	background: none;
+}
+.str {
+	background: black;
+}
+.bgh {
+	height: 4em
+}
+.navbar > h2 {
+	float: left;
+	width: 70%;
+	display: inline-block;
+	margin: 0;
+}
+.navbar > ul {
+	margin: 0;
+	list-style: none;
+	display: inline-flex;
+	justify-content: space-around;
+	position: relative;
+	left: 2em;
+	align-items: center;
+	float: left;
+	width: 20%
+}
+a {
+	text-decoration: none;
+	color: whitesmoke
+}
 </style>
