@@ -1,6 +1,6 @@
 <template>
 	<div class="social">
-		<p class="soctext">Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+		<p class="soctext">folo areq mez mer instagramnerum</p>
 		<div class="socialbox">
 			<div class="socbox">
 				<p class="boxtext">Lorem ipsum dolor sit amet</p>

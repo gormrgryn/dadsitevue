@@ -8,8 +8,11 @@
 			<div>
 				<Form type="Name"></Form>
 				<Form type="Email"></Form>
-				<Form type="Message"></Form>
 				<Form type="Number"></Form>
+				<Form type="Message"></Form>
+			</div>
+			<div class="butdiv">
+				<button>Submit</button>
 			</div>
 		</div>
   </div>
@@ -43,8 +46,7 @@ export default {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	height: 
-	100vh;
+	height: 100vh;
 }
 .contact > p {
 	align-self: center;
@@ -57,5 +59,20 @@ export default {
 .info {
 	width: 50%;
 	float: left;
+}
+button {
+	font-family: "Quicksand", sans-serif;
+	font-size: 1.5em;
+	background: transparent;
+	color: gray;
+	border: 0;
+	border-bottom: 1px gray solid;
+	transition: all 0.5s ease-in-out;
+	width: 4em;
+	height: 3em
+}
+button:hover {
+	border-color: whitesmoke;
+	color: whitesmoke
 }
 </style>

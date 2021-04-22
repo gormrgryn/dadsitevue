@@ -16,10 +16,11 @@
 		methods: {
 			onscroll() {
 				let y = window.scrollY
-				if(y > 600) {
+				let height = document.documentElement.offsetHeight
+				if(y > height) {
 					this.$refs.nav.classList = 'navbar'
 					this.$refs.nav.classList.add('str', 'bgh')
-				} else if (y < 600) {
+				} else if (y < height) {
 					this.$refs.nav.classList = 'navbar'
 					this.$refs.nav.classList.add('trans')
 				}
@@ -54,7 +55,6 @@
 	height: 4em
 }
 .navbar > h2 {
-	float: left;
 	width: 70%;
 	display: inline-block;
 	margin: 0;

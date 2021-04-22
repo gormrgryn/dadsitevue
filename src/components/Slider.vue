@@ -79,13 +79,11 @@ export default {
   color: antiquewhite;
 }
 .arrow_left {
-  float: left;
-  width: calc(50% - 1em);
+  width: 15%;
   margin-left: 1em
 }
 .arrow_right {
-  float: left;
-  width: calc(50% - 1em);
+  width: 15%;
   justify-content: flex-end;
   margin-right: 1em
 }
@@ -108,6 +106,8 @@ export default {
   transform: rotate(-45deg);
 }
 .grads {
+  display: flex;
+  justify-content: space-between;
   height: 100%;
   background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 30%, rgba(255,255,255,0) 70%, rgba(0,0,0,1) 100%);
 }
