@@ -1,0 +1,11 @@
+<svg xmlns ="http://www.w3.org/2000/svg" width = "128" height = "128">
+	<g class = "icon_image" transform = "translate(5,5)">
+		<g class = "navy_blue_background">
+			<rect fill= "#000" x = "0" y = "0" height = "119" width = "119" rx = "11" ry = "11"></rect>
+		</g>
+		<g class = "f_foreground">
+			<path fill= "#FFFFFF" d = "M62, 119 L62, 73 L47, 73 L47, 54 L62, 54 L 62, 40 A 21, 23 0 0 1 81 17 L101, 17 L101, 35 L89, 35 A 7.5, 6.5 0 0 0 82, 42 L82, 54 L 100, 54 L 98, 73 L82, 73 L82, 119 z">
+		</path>
+		</g>
+	</g>
+<svg>
