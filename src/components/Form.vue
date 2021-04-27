@@ -60,11 +60,11 @@ export default {
 .input-field:focus {
   border-color: whitesmoke
 }
-.input-field:focus ~ .input-field,
+.input-field:focus ~ .input_label,
 .input-field:not(:placeholder-shown) ~ .input_label {
   margin-bottom: 2.5em;
 }
-textarea {
+textarea, input {
   font-family: "Quicksand", sans-serif;
   resize: none
 }
@@ -73,6 +73,9 @@ textarea {
 }
 .ta-label {
   margin-top: 0.5em
+}
+textarea {
+  height: 5em;
 }
 textarea:focus ~ .ta-label,
 textarea:not(:placeholder-shown) ~ .ta-label {
