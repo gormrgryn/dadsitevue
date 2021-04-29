@@ -4,12 +4,12 @@
       <router-link to="/">sitename</router-link>
     </h2>
     <ul class="navlist">
-      <li class="fbli">
-        <a href="https://facebook.com" class="fb" data-content="Link Hover">Link Hover</a>
+      <li>
+        <a href="https://facebook.com" class="fb">Facebook</a>
       </li>
-      <!-- <li>
-        <a href="https://instagram.com" class="fb">Instagram</a>
-      </li>-->
+      <li>
+        <a href="https://instagram.com" class="ig">Instagram</a>
+      </li>
       <li>
         <router-link to="/contact">Contact</router-link>
       </li>
@@ -84,24 +84,31 @@ a {
   color: whitesmoke;
 }
 .fb {
-  position: relative;
-  display: inline-block;
-  overflow: hidden;
+  text-align: center;
+  background: linear-gradient(to right, #fff 20%, royalblue 40%, royalblue 60%, #fff 80%);
+  background-size: 200% auto;
+  background-position-x: -50%;
+  color: #000;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.2s ease
 }
-.fb::before {
-  position: absolute;
-  content: attr(data-content);
-  color: royalblue;
-  overflow: hidden;
-  transition: width 275ms ease;
-  width: 0;
-  white-space: nowrap;
+.fb:hover {
+  background-position-x: 50%
 }
-.fb:hover::before {
-  width: 100%;
+.ig {
+  text-align: center;
+  background: linear-gradient(90deg, #fff 20%, #fdf497 30%, #fd5949 40%,#d6249f 50%,#285AEB 60%, #fff 80%);
+  background-size: 200% auto;
+  background-position-x: -50%;
+  color: #000;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.2s ease
 }
-.fbli {
-  display: flex;
-  align-items: center;
+.ig:hover {
+  background-position-x: 50%
 }
 </style>

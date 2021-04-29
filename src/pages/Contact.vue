@@ -11,9 +11,8 @@
 				<Form type="Number"></Form>
 				<Form type="Message"></Form>
 			</div>
-			<div class="butdiv">
-				<button>Submit</button>
-			</div>
+			<button>Submit</button>
+			<div class="ind"></div>
 		</div>
   </div>
 </template>
@@ -66,13 +65,23 @@ button {
 	background: transparent;
 	color: gray;
 	border: 0;
-	border-bottom: 1px gray solid;
+	/* border-bottom: 1px gray solid; */
 	transition: all 0.5s ease-in-out;
 	width: 4em;
-	height: 3em
+	height: 3em;
+	align-self: center
 }
 button:hover {
-	border-color: whitesmoke;
 	color: whitesmoke
+}
+button:hover ~ .ind {
+	border-color: whitesmoke;
+	width: 7em;
+}
+.ind {
+	width: 2em;
+	border-bottom: 1px gray solid;
+	align-self: center;
+	transition: all 0.5s ease
 }
 </style>
