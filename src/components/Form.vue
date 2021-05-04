@@ -5,6 +5,7 @@
     <label :for="type" :class="'input_label ' + cl + '-label'">
       <span>{{ type }}</span>
     </label>
+    <span class="ind"></span>
   </div>
 </template>
 
@@ -42,7 +43,7 @@ export default {
   background: none;
   outline: 0;
   border: none;
-  border-bottom: 1px gray solid;
+  /* border-bottom: 1px gray solid; */
   color: whitesmoke
 }
 .input-field::placeholder {
@@ -57,8 +58,9 @@ export default {
 	margin: 0;
   color: white;
 }
-.input-field:focus {
-  border-color: whitesmoke
+.input-field:focus ~ .ind {
+  background-color: whitesmoke;
+  width: 100%;
 }
 .input-field:focus ~ .input_label,
 .input-field:not(:placeholder-shown) ~ .input_label {
@@ -80,5 +82,11 @@ textarea {
 textarea:focus ~ .ta-label,
 textarea:not(:placeholder-shown) ~ .ta-label {
   margin-top: -1em
+}
+.ind {
+  width: 4em;
+  height: 1px;
+  background-color: gray;
+  transition: all 0.5s ease
 }
 </style>

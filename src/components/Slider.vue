@@ -84,13 +84,14 @@ export default {
   transition: all 0.4s;
   padding: 0 0.5em;
   background-size: cover;
+  opacity: 0.5;
 }
 .arrow {
   display: inline-block;
   height: 20px;
   width: 20px;
-  border-right: 2px solid whitesmoke;
-  border-bottom: 2px solid whitesmoke;
+  border-right: 2px solid white;
+  border-bottom: 2px solid white;
   margin: 0.3em;
   transition: 0.6s;
 }

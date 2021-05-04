@@ -66,6 +66,7 @@ export default {
   background-position: center;
   transition: all 0.4s;
   background-size: cover;
+  opacity: 0.5
 }
 span {
   position: absolute;

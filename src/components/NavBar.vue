@@ -53,6 +53,7 @@ export default {
   font-size: 1.1em;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
+  /* background-color: rgb(220,220,220, 0.05) */
 }
 .trans {
   background: none;
