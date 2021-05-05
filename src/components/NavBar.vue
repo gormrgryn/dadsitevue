@@ -42,7 +42,7 @@ export default {
   height: 5em;
   padding: 0 2em;
   line-height: 5em;
-  width: calc(100% - 4em);
+  width: 100%;
   color: whitesmoke;
   z-index: 1;
   position: fixed;
@@ -53,7 +53,6 @@ export default {
   font-size: 1.1em;
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
-  /* background-color: rgb(220,220,220, 0.05) */
 }
 .trans {
   background: none;

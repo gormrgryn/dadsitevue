@@ -1,7 +1,9 @@
 <template>
   <div class="slideshow" ref="slide">
-    <span class="arrow arrowleft" @click="slideleft"></span>
-    <span class="arrow arrowright" @click="slideright"></span>
+    <div class="grad">
+      <span class="arrow arrowleft" @click="slideleft"></span>
+      <span class="arrow arrowright" @click="slideright"></span>
+    </div>
   </div>
 </template>
 
@@ -30,7 +32,7 @@ export default {
   },
   methods: {
     slide() {
-      if(this.$route.name === 'Home' && this.$refs.slide) {
+      if (this.$route.name === "Home" && this.$refs.slide) {
         if (!this.$data.proc) {
           if (this.$data.i.next) {
             this.$data.i = this.$data.i.next;
@@ -75,16 +77,20 @@ export default {
 <style>
 .slideshow {
   height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: all 0.4s;
+}
+.grad {
+  background-size: cover;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: black;
-  background-repeat: no-repeat;
-  background-position: center;
-  transition: all 0.4s;
+  width: 100%;
+  height: 100vh;
   padding: 0 0.5em;
-  background-size: cover;
-  opacity: 0.5;
+  background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(94,94,94,0.2) 50%, rgba(255,255,255,0) 100%)
 }
 .arrow {
   display: inline-block;

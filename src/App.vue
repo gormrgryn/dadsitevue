@@ -16,7 +16,9 @@ export default {
 </script>
 
 <style>
-
+* {
+  box-sizing: border-box;
+}
 html,
 body {
   padding: 0;
@@ -31,17 +33,15 @@ body {
   height: 100vh
 }
 ::-webkit-scrollbar {
-  width: 5px;
-  /* background: rgba(#fff, #fff, #fff, 0.5) */
-  background: linear-gradient(135deg, rgba(23,23,23,1) 0%, rgba(94,94,94,1) 100%);
+  transition: all 0.4s ease;
+  width: 2px;
+  background: black
 }
-/* ::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  background-color: transparent;
-} */
-
+::-webkit-scrollbar:hover {
+  width: 4px
+}
 ::-webkit-scrollbar-thumb {
   background: lightgray;
-  border-radius: 1em
+  border-radius: .5em
 }
 </style>

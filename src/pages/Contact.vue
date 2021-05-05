@@ -117,7 +117,7 @@ button:hover ~ .ind {
   width: 7em;
 }
 .ind {
-  width: 2em;
+  width: 1.5em;
   border-bottom: 1px gray solid;
   align-self: center;
   transition: all 0.5s ease;
