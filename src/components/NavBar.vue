@@ -27,11 +27,9 @@ export default {
       let y = window.scrollY;
       let height = document.documentElement.offsetHeight;
       if (y > height) {
-        this.$refs.nav.classList = "navbar";
-        this.$refs.nav.classList.add("str", "bgh");
+        this.$refs.nav.classList = "navbar str";
       } else if (y < height) {
-        this.$refs.nav.classList = "navbar";
-        this.$refs.nav.classList.add("trans");
+        this.$refs.nav.classList = "navbar trans";
       }
     }
   }
@@ -54,13 +52,14 @@ export default {
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
+.trans:hover {
+  background: rgba(0, 0, 0, 0.7)
+}
 .trans {
   background: none;
 }
 .str {
-  background: black;
-}
-.bgh {
+  background: rgba(0, 0, 0, 0.95);
   height: 4em;
 }
 .navbar > h2 {
@@ -88,7 +87,7 @@ a {
   background: linear-gradient(to right, #fff 20%, royalblue 40%, royalblue 60%, #fff 80%);
   background-size: 200% auto;
   background-position-x: -50%;
-  color: #000;
+  color: black;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -102,7 +101,7 @@ a {
   background: linear-gradient(90deg, #fff 20%, #fdf497 30%, #fd5949 40%,#d6249f 50%,#285AEB 60%, #fff 80%);
   background-size: 200% auto;
   background-position-x: -50%;
-  color: #000;
+  color: black;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -110,5 +109,10 @@ a {
 }
 .ig:hover {
   background-position-x: 50%
+}
+@media screen and (max-width: 768px){
+  .fb, .ig {
+    display: none
+  }
 }
 </style>

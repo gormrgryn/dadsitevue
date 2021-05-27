@@ -1,5 +1,5 @@
 <template>
-  <div class="thebox" ref="thebox">
+  <div :class="'thebox ' + orientation" ref="thebox">
     <div class="bg0">
       <div class="bg" ref="bg">
         <div class="text" :data-aos="aos" data-aos-delay="200">
@@ -34,19 +34,9 @@ export default {
     }
   },
   mounted() {
-    this.$refs.thebox.style.height = document.documentElement.clientHeight + "px";
-    let bg = this.$refs.bg
-    this.$refs.thebox.style.backgroundImage = `url(${this.photo})`;
-    if (this.orientation == "right") {
-      bg.style.justifyContent = "flex-end";
-      bg.childNodes[0].style.textAlign = "right";
-      bg.style.background =
-        "linear-gradient(270deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%)";
-    } else {
-      bg.style.justifyContent = "flex-start";
-      bg.style.background =
-        "linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%)";
-    }
+    let box = this.$refs.thebox
+    box.style.height = document.documentElement.clientHeight + "px";
+    box.style.backgroundImage = `url(${this.photo})`;
   }
 };
 </script>
@@ -56,7 +46,8 @@ export default {
   height: 100%;
   background-repeat: no-repeat;
   background-position: center;
-  background-size: 100%;
+  background-size: cover;
+  overflow: hidden
 }
 .text > .heading {
   font-size: 70px;
@@ -73,12 +64,34 @@ export default {
 }
 .bg {
   height: 100%;
-  padding: 0 10%;
   display: flex;
-  align-items: center
+  align-items: center;
 }
 .bg0 {
   height: 100%;
   background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 45%, rgba(255,255,255,0) 45%, rgba(0,0,0,1) 100%);
+}
+
+.right .bg {
+  padding-right: 5%;
+  justify-content: flex-end;
+  background: linear-gradient(270deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+.right .bg > .text {
+  text-align: right;
+}
+.left .bg {
+  padding-left: 5%;
+  justify-content: flex-start;
+  background: linear-gradient(90deg, rgba(0, 0, 0, 1) 0%, rgba(255, 255, 255, 0) 100%);
+}
+.left .bg > .text {
+  text-align: left;
+}
+
+@media screen and (max-width: 768px){
+  .bg {
+    padding: 0;
+  }
 }
 </style>
