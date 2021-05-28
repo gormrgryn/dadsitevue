@@ -28,6 +28,7 @@ body {
   color: white;
   font-family: "Quicksand", sans-serif;
   height: 100vh;
+  scroll-behavior: smooth;
 }
 #app {
   height: 100vh
