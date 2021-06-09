@@ -93,5 +93,8 @@ export default {
   .bg {
     padding: 0;
   }
+  .text{
+    width: 80%
+  }
 }
 </style>

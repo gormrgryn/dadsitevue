@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="navbar" ref="nav">
+    <div class="navbar">
       <h2>
         <router-link to="/">sitename</router-link>
       </h2>
@@ -39,35 +39,71 @@ export default {
   name: "NavBar",
   data() {
     return {
-      check: false
+      check: false,
+      style: document.createElement("style"),
+      sheet: null
     };
   },
   watch: {
     check() {
       if (this.check) {
-        document.body.style.overflowY = 'hidden'
-        this.$refs.menu.classList = "menu visible"
-        window.scrollTo(0, 0)
-      }
-      else {
-        document.body.style.overflowY = ''
-        this.$refs.menu.classList = "menu"
+        document.body.style.overflowY = "hidden";
+        let stylesheet = this.sheet;
+        stylesheet.removeRule(0)
+        stylesheet.insertRule(`
+          .visible {
+            top: ${window.scrollY}px !important;
+          }
+        `)
+        this.$refs.menu.classList = "menu visible";
+      } else {
+        document.body.style.overflowY = "";
+        this.$refs.menu.classList = "menu";
       }
     }
   },
   created() {
     window.addEventListener("scroll", this.onscroll);
   },
+  mounted() {
+    let navH = document.querySelector(".navbar").offsetHeight;
+    let burg = document.querySelector(".burger");
+    document.body.appendChild(this.style);
+    this.sheet = this.style.sheet
+    let stylesheet = this.sheet;
+    stylesheet.insertRule(`
+      .burger {
+        top: ${(navH - burg.offsetHeight) / 2}px;
+      }
+    `);
+    stylesheet.insertRule(`
+      .burger input {
+        width: ${burg.offsetWidth}px;
+        height: ${burg.offsetHeight}px;
+      }
+    `);
+    stylesheet.insertRule(`
+      .btrans {
+        top: ${(navH  - burg.offsetHeight - 16) / 2}px !important;
+      }
+    `);
+    stylesheet.insertRule(`
+      .visible {
+        top: 0;
+      }
+    `);
+  },
   methods: {
     onscroll() {
       let y = window.scrollY;
       let height = document.documentElement.offsetHeight;
       if (y > height) {
-        this.$refs.nav.classList = "navbar str";
-        this.$refs.burger.style.display = "none";
+        let nav = document.querySelector(".navbar")
+        nav.classList = "navbar str";
+        document.querySelector(".burger").classList = "burger btrans";
       } else if (y < height) {
-        this.$refs.nav.classList = "navbar trans";
-        this.$refs.burger.style.display = "block";
+        document.querySelector(".burger").classList = "burger";
+        document.querySelector(".navbar").classList = "navbar trans";
       }
     }
   }
@@ -164,41 +200,39 @@ a {
 .ig {
   font-weight: bold;
 }
-
 .burger {
-  display: none;
   position: fixed;
   right: 20px;
-  top: 17.75px;
-  height: 50px;
-  width: 50px;
+  transition: all 0.4s ease;
   z-index: 2;
 }
 .burger input {
+  display: inherit;
   opacity: 0;
-  z-index: 2;
+  z-index: 3;
   margin: 0;
-  width: 50px;
-  height: 50px;
   position: absolute;
 }
 .burger div {
-  height: 5px;
-  width: 50px;
-  background-color: black;
-  margin-bottom: 12.5px;
+  display: inherit;
+  height: 3px;
+  width: 40px;
+  background-color: whitesmoke;
+  margin-bottom: 12px;
   border-radius: 1000px;
   transform-origin: center left;
   transition: 0.5s all ease;
 }
-
+.burger div:nth-last-child(1) {
+  margin-bottom: 0;
+}
 .burger input:checked ~ div:nth-last-child(3) {
   background: whitesmoke;
-  transform: rotate(45deg);
+  transform: rotate(49deg);
 }
 .burger input:checked ~ div:nth-last-child(1) {
   background: whitesmoke;
-  transform: rotate(-45deg);
+  transform: rotate(-49deg);
 }
 .burger input:checked ~ div:nth-last-child(2) {
   opacity: 0;
@@ -216,9 +250,6 @@ a {
   background: black;
   z-index: 1;
 }
-.visible {
-  top: 0
-}
 @media screen and (max-width: 768px) {
   .icon {
     display: none;
@@ -228,6 +259,11 @@ a {
   }
   .menu {
     display: flex;
+  }
+}
+@media screen and (min-width: 768px) {
+  .burger {
+    display: none;
   }
 }
 </style>
