@@ -17,7 +17,7 @@
 </template>
 <script>
 import Form from "@/components/Form.vue";
-import { LinkedList } from '../assets/list.js';
+import { LinkedList } from "../assets/list.js";
 export default {
   name: "Contact",
   data() {
@@ -35,11 +35,13 @@ export default {
     Form
   },
   mounted() {
-    this.$data.urls.forEach(j => {
-      this.$data.list.add(j);
-    });
-    this.$data.i = this.$data.list.head;
-    this.slide();
+    if (document.querySelector(".info").offsetHeight) {
+      this.$data.urls.forEach(j => {
+        this.$data.list.add(j);
+      });
+      this.$data.i = this.$data.list.head;
+      this.slide();
+    }
   },
   methods: {
     slide() {
@@ -66,12 +68,13 @@ export default {
   background-position: center;
   transition: all 0.4s;
   background-size: cover;
-  opacity: 0.5
+  opacity: 0.5;
 }
 span {
   position: absolute;
   top: 50vh;
-  left: 15%;
+  width: 50%;
+  text-align: center;
 }
 .main {
   display: flex;
@@ -121,5 +124,15 @@ button:hover ~ .ind {
   border-bottom: 1px gray solid;
   align-self: center;
   transition: all 0.5s ease;
+}
+
+@media screen and (max-width: 768px) {
+  .info,
+  span {
+    display: none;
+  }
+  .contact {
+    width: 100%;
+  }
 }
 </style>

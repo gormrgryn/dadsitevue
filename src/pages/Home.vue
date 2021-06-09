@@ -2,18 +2,21 @@
   <div class="home">
     <Slider></Slider>
     <TheBox v-for="i in arr" :key="i.title" :title="i.title" :txt="i.txt" :orientation="i.orientation" :photo="i.photo"></TheBox>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
 import Slider from "@/components/Slider";
 import TheBox from "@/components/TheBox";
+import Footer from '@/components/Footer'
 
 export default {
   name: "App",
   components: {
     Slider,
-    TheBox
+    TheBox,
+    Footer
   },
   data() {
     return {

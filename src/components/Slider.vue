@@ -76,7 +76,7 @@ export default {
 
 <style>
 .slideshow {
-  height: 100vh;
+  height: 75vh;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -88,7 +88,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   padding: 0 0.5em;
   background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(94,94,94,0.2) 50%, rgba(255,255,255,0) 100%)
 }

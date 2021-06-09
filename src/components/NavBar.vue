@@ -23,6 +23,9 @@
       <div></div>
     </div>
     <div class="menu" ref="menu">
+      <div>
+        <h2>SOCIAL MEDIA</h2>
+      </div>
       <ul>
         <li>
           <a href="https://facebook.com" class="fb">Facebook</a>
@@ -49,12 +52,12 @@ export default {
       if (this.check) {
         document.body.style.overflowY = "hidden";
         let stylesheet = this.sheet;
-        stylesheet.removeRule(0)
+        stylesheet.removeRule(0);
         stylesheet.insertRule(`
           .visible {
             top: ${window.scrollY}px !important;
           }
-        `)
+        `);
         this.$refs.menu.classList = "menu visible";
       } else {
         document.body.style.overflowY = "";
@@ -69,7 +72,7 @@ export default {
     let navH = document.querySelector(".navbar").offsetHeight;
     let burg = document.querySelector(".burger");
     document.body.appendChild(this.style);
-    this.sheet = this.style.sheet
+    this.sheet = this.style.sheet;
     let stylesheet = this.sheet;
     stylesheet.insertRule(`
       .burger {
@@ -84,7 +87,7 @@ export default {
     `);
     stylesheet.insertRule(`
       .btrans {
-        top: ${(navH  - burg.offsetHeight - 16) / 2}px !important;
+        top: ${(navH - burg.offsetHeight - 16) / 2}px !important;
       }
     `);
     stylesheet.insertRule(`
@@ -96,9 +99,9 @@ export default {
   methods: {
     onscroll() {
       let y = window.scrollY;
-      let height = document.documentElement.offsetHeight;
+      let height = document.querySelector('.slideshow').offsetHeight
       if (y > height) {
-        let nav = document.querySelector(".navbar")
+        let nav = document.querySelector(".navbar");
         nav.classList = "navbar str";
         document.querySelector(".burger").classList = "burger btrans";
       } else if (y < height) {
@@ -202,7 +205,7 @@ a {
 }
 .burger {
   position: fixed;
-  right: 20px;
+  right: 1em;
   transition: all 0.4s ease;
   z-index: 2;
 }
@@ -245,10 +248,21 @@ a {
   width: 100%;
   height: 100%;
   transition: 0.4s all ease;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   background: black;
   z-index: 1;
+}
+.menu > ul {
+  list-style: none;
+  padding: 0;
+  font-size: 1.5em;
+  text-align: center
+}
+.menu li {
+  margin-bottom: 1em
 }
 @media screen and (max-width: 768px) {
   .icon {
@@ -257,13 +271,23 @@ a {
   .burger {
     display: block;
   }
-  .menu {
-    display: flex;
-  }
 }
 @media screen and (min-width: 768px) {
   .burger {
     display: none;
+  }
+}
+@media screen and (max-width: 576px) {
+  .navbar > ul {
+    justify-content: flex-start;
+  }
+  .navbar {
+    padding: 1em
+  }
+}
+@media screen and (max-width: 396px) {
+  .navbar > ul {
+    width: 70%;
   }
 }
 </style>

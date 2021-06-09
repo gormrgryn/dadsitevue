@@ -45,4 +45,10 @@ body {
   background: lightgray;
   border-radius: .5em
 }
+
+@media screen and (max-width: 768px) {
+  ::-webkit-scrollbar {
+    display: none
+  }
+}
 </style>
