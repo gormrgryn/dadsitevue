@@ -38,9 +38,6 @@ body {
   width: 2px;
   background: black
 }
-::-webkit-scrollbar:hover {
-  width: 4px
-}
 ::-webkit-scrollbar-thumb {
   background: lightgray;
   border-radius: .5em

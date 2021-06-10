@@ -1,9 +1,11 @@
 <template>
   <div>
     <div class="navbar">
-      <h2>
-        <router-link to="/">sitename</router-link>
-      </h2>
+      <h1>
+        <span @click="uncheck">
+          <router-link to="/">sitename</router-link>
+        </span>
+      </h1>
       <ul class="navlist" ref="list">
         <li class="icon">
           <a href="https://facebook.com" class="fb">Facebook</a>
@@ -11,7 +13,7 @@
         <li class="icon">
           <a href="https://instagram.com" class="ig">Instagram</a>
         </li>
-        <li>
+        <li class="contact">
           <router-link to="/contact">Contact</router-link>
         </li>
       </ul>
@@ -23,10 +25,10 @@
       <div></div>
     </div>
     <div class="menu" ref="menu">
-      <div>
-        <h2>SOCIAL MEDIA</h2>
-      </div>
       <ul>
+        <li>
+          <span @click="uncheck"><router-link to="/contact">Contact</router-link></span>
+        </li>
         <li>
           <a href="https://facebook.com" class="fb">Facebook</a>
         </li>
@@ -108,6 +110,11 @@ export default {
         document.querySelector(".burger").classList = "burger";
         document.querySelector(".navbar").classList = "navbar trans";
       }
+    },
+    uncheck() {
+      setTimeout(() => {
+        this.$data.check = false
+      }, 150);
     }
   }
 };
@@ -137,8 +144,6 @@ export default {
   height: 4em;
 }
 .navbar > h1 {
-  width: 20%;
-  display: inline-block;
   margin: 0;
   font-size: 1.5em;
 }
@@ -265,16 +270,16 @@ a {
   margin-bottom: 1em
 }
 @media screen and (max-width: 768px) {
-  .icon {
+  .icon, .contact {
     display: none;
   }
   .burger {
-    display: block;
+    visibility: visible;
   }
 }
 @media screen and (min-width: 768px) {
   .burger {
-    display: none;
+    visibility: hidden
   }
 }
 @media screen and (max-width: 576px) {

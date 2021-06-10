@@ -19,6 +19,7 @@ export default {
   display: flex;
   align-items: center;
   margin-left: 2%;
+  font-size: 0.8em;
 }
 a {
   color: rgb(105, 141, 117);

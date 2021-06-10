@@ -76,7 +76,7 @@ export default {
 
 <style>
 .slideshow {
-  height: 75vh;
+  height: 100vh;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -109,5 +109,10 @@ export default {
 }
 .arrowright {
   transform: rotate(-45deg);
+}
+@media screen and (max-width: 768px) {
+  .slideshow {
+    height: 75vh;
+  }
 }
 </style>
