@@ -133,8 +133,8 @@ export default {
   justify-content: space-between;
   align-items: center;
   font-size: 1.1em;
-  -webkit-transition: all 0.4s ease;
-  transition: all 0.4s ease;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 .trans {
   background: none;
@@ -211,7 +211,7 @@ a {
 .burger {
   position: fixed;
   right: 1em;
-  transition: all 0.4s ease;
+  transition: all 0.2s ease;
   z-index: 2;
 }
 .burger input {
@@ -249,9 +249,9 @@ a {
 .menu {
   display: none;
   position: absolute;
-  top: -100%;
+  top: -125%;
   width: 100%;
-  height: 100%;
+  height: 125%;
   transition: 0.4s all ease;
   display: flex;
   flex-direction: column;
@@ -259,6 +259,7 @@ a {
   align-items: center;
   background: black;
   z-index: 1;
+  margin-top: -2em;
 }
 .menu > ul {
   list-style: none;

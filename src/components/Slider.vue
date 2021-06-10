@@ -2,6 +2,7 @@
   <div class="slideshow" ref="slide">
     <div class="grad">
       <span class="arrow arrowleft" @click="slideleft"></span>
+      <span class="titletxt">More money more problems, idgaf i keep a revolver</span>
       <span class="arrow arrowright" @click="slideright"></span>
     </div>
   </div>
@@ -92,6 +93,10 @@ export default {
   padding: 0 0.5em;
   background: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(94,94,94,0.2) 50%, rgba(255,255,255,0) 100%)
 }
+.titletxt {
+  font-size: 1.5em;
+  text-align: center;
+}
 .arrow {
   display: inline-block;
   height: 20px;
@@ -113,6 +118,11 @@ export default {
 @media screen and (max-width: 768px) {
   .slideshow {
     height: 75vh;
+  }
+}
+@media screen and (max-width: 576px) {
+  .titletxt {
+    font-size: 1em;
   }
 }
 </style>

@@ -35,7 +35,7 @@ export default {
   },
   mounted() {
     let box = this.$refs.thebox
-    box.style.height = document.documentElement.clientHeight + "px";
+    // box.style.height = document.documentElement.clientHeight + "px";
     box.style.backgroundImage = `url(${this.photo})`;
   }
 };
@@ -50,11 +50,11 @@ export default {
   overflow: hidden
 }
 .text > .heading {
-  font-size: 70px;
+  font-size: 4em;
   line-height: 90px;
 }
 .text > .txt {
-  font-size: 20px;
+  font-size: 1.5em;
   text-align: inherit;
 }
 .text {
@@ -94,7 +94,19 @@ export default {
     padding: 0;
   }
   .text{
-    width: 80%
+    width: 90%
   }
 }
+
+@media screen and (max-width: 576px) {
+  .thebox {
+    font-size: 0.8em;
+  }
+}
+@media screen and (max-width: 396px) {
+  .thebox {
+    font-size: 0.5em;
+  }
+}
+
 </style>
