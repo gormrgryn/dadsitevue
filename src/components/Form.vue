@@ -1,7 +1,7 @@
 <template>
   <div :class="'input-icons ' + cl">
-    <textarea v-if="type === 'Message'" maxlength="1000" class="input-field" type="text" :placeholder="type"></textarea>
-    <input v-else maxlength="1000" class="input-field" type="text" :placeholder="type" />
+    <textarea v-if="type === 'Message'" v-model="value" @change="sendDataToStore" maxlength="1000" class="input-field" :placeholder="type"></textarea>
+    <input v-else @change="sendDataToStore" v-model="value" maxlength="1000" class="input-field" type="text" :placeholder="type" />
     <label :for="type" :class="'input_label ' + cl + '-label'">
       <span>{{ type }}</span>
     </label>
@@ -19,13 +19,23 @@ export default {
     if (this.type === 'Message') {
       this.cl = 'ta'
     }
+    // this.$data[this.type] = 
   },
   data() {
     return {
-      cl: ''
+      cl: '',
+      value: ''
     };
   },
-  methods: {}
+  methods: {
+    sendDataToStore() {
+      this.$store.dispatch('addValue', {
+        key: this.type,
+        value: this.value
+      })
+      console.log(this.$store.getters.getValues)
+    }
+  }
 };
 </script>
 
