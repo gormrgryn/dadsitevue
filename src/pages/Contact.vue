@@ -7,10 +7,9 @@
       <div>
         <Form type="Name"></Form>
         <Form type="Email"></Form>
-        <Form type="Number"></Form>
         <Form type="Message"></Form>
       </div>
-      <button>Submit</button>
+      <button @click="validate">Submit</button>
       <div class="ind"></div>
     </div>
   </div>
@@ -56,6 +55,59 @@ export default {
         }')`;
         setTimeout(this.slide, 5000);
       }
+    },
+    validate() {
+      const values = this.$store.getters.getValues;
+      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+      const res = re.test(String(values.email).toLowerCase());
+      let name
+      let email
+      let msg
+      if (values.name.length === 0) {
+        this.$store.dispatch('addError', {
+          key: 'name',
+          msg: 'Name must be non-empty'
+        })
+        name = false
+      } else {
+        this.$store.dispatch('addError', {
+          key: 'name',
+          msg: ''
+        })
+        name = true
+      }
+      if (!res) {
+        this.$store.dispatch('addError', {
+          key: 'email',
+          msg: 'Invalid e-mail'
+        })
+        email = false
+      } else {
+        this.$store.dispatch('addError', {
+          key: 'email',
+          msg: ''
+        })
+        email = true
+      }
+      if (values.message.length === 0) {
+        this.$store.dispatch('addError', {
+          key: 'message',
+          msg: 'Message must be non-empty'
+        })
+        msg = false
+      } else {
+        this.$store.dispatch('addError', {
+          key: 'message',
+          msg: ''
+        })
+        msg = true
+      }
+      if (name && email && msg) {
+        this.submit()
+      }
+    },
+    submit() {
+      
     }
   }
 };

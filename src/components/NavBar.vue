@@ -73,7 +73,7 @@ export default {
   mounted() {
     let navH = document.querySelector(".navbar").offsetHeight;
     let burg = document.querySelector(".burger");
-    document.body.appendChild(this.style);
+    document.head.appendChild(this.style);
     this.sheet = this.style.sheet;
     let stylesheet = this.sheet;
     stylesheet.insertRule(`
