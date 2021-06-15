@@ -20,7 +20,7 @@
     <label :for="type" :class="'input_label ' + cl + '-label'">
       <span>{{ type }}</span>
     </label>
-    <span class="ind"></span>
+    <span class="indi"></span>
     <span style="position: absolute">
       <span :class="'error ' + type.toLowerCase()">{{ errors[type.toLowerCase()] }}</span>
     </span>
@@ -41,14 +41,6 @@ export default {
       key: this.type,
       value: ""
     });
-    // let style = document.createElement('style')
-    // document.head.appendChild(style)
-    // let stylesheet = style.sheet
-    // stylesheet.insertRule(`
-    //   .error.name {
-    //     top: ${}
-    //   }
-    // `)
   },
   data() {
     return {
@@ -78,7 +70,7 @@ export default {
   margin-bottom: 3em;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .input-field {
   width: 100%;
@@ -101,7 +93,7 @@ export default {
   margin: 0;
   color: white;
 }
-.input-field:focus ~ .ind {
+.input-field:focus ~ .indi {
   background-color: whitesmoke;
   width: 100%;
 }
@@ -127,7 +119,7 @@ textarea:focus ~ .ta-label,
 textarea:not(:placeholder-shown) ~ .ta-label {
   margin-top: -1em;
 }
-.ind {
+.indi {
   width: 4em;
   height: 1px;
   background-color: gray;

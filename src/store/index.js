@@ -1,15 +1,8 @@
-// import { Vue } from "vue";
 import { createStore } from "vuex";
-
-// Vue.use(Vuex)
 
 const state = {
     formValues: {},
-    errors: {
-        // name: "Name must be non-empty",
-        // email: "Invalid e-mail",
-        // message: "Message must be non-empty"
-    }
+    errors: {}
 }
 const mutations = {
     ADD_VALUE (state, payload) {
@@ -17,6 +10,11 @@ const mutations = {
     },
     ADD_ERROR (state, payload) {
         state.errors[payload.key] = payload.msg
+    },
+    CLEAR_FIELDS (state) {
+        Object.keys(state.formValues).forEach(i => {
+            state.formValues[i] = ''
+        })
     }
 }
 const actions = {
@@ -25,6 +23,9 @@ const actions = {
     },
     addError({ commit }, payload) {
         commit('ADD_ERROR', payload)
+    },
+    clearFields({ commit }) {
+        commit('CLEAR_FIELDS')
     }
 }
 const getters = {
