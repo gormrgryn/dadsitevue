@@ -35,7 +35,6 @@ export default {
   },
   mounted() {
     let box = this.$refs.thebox
-    // box.style.height = document.documentElement.clientHeight + "px";
     box.style.backgroundImage = `url(${this.photo})`;
   }
 };
@@ -105,7 +104,7 @@ export default {
 }
 @media screen and (max-width: 396px) {
   .thebox {
-    font-size: 0.5em;
+    font-size: 0.7em;
   }
 }
 

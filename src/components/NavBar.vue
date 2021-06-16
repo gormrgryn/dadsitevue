@@ -27,7 +27,9 @@
     <div class="menu" ref="menu">
       <ul>
         <li>
-          <span @click="uncheck"><router-link to="/contact">Contact</router-link></span>
+          <span @click="uncheck">
+            <router-link to="/contact">Contact</router-link>
+          </span>
         </li>
         <li>
           <a href="https://facebook.com" class="fb">Facebook</a>
@@ -52,7 +54,7 @@ export default {
   watch: {
     check() {
       if (this.check) {
-        document.body.style.overflowY = "hidden";
+        document.getElementById("app").style.overflowY = "hidden";
         let stylesheet = this.sheet;
         stylesheet.removeRule(0);
         stylesheet.insertRule(`
@@ -62,7 +64,7 @@ export default {
         `);
         this.$refs.menu.classList = "menu visible";
       } else {
-        document.body.style.overflowY = "";
+        document.getElementById("app").style.overflowY = "unset";
         this.$refs.menu.classList = "menu";
       }
     }
@@ -101,7 +103,7 @@ export default {
   methods: {
     onscroll() {
       let y = window.scrollY;
-      let height = document.querySelector('.slideshow').offsetHeight
+      let height = document.body.offsetHeight;
       if (y > height) {
         let nav = document.querySelector(".navbar");
         nav.classList = "navbar str";
@@ -113,7 +115,7 @@ export default {
     },
     uncheck() {
       setTimeout(() => {
-        this.$data.check = false
+        this.$data.check = false;
       }, 150);
     }
   }
@@ -265,13 +267,14 @@ a {
   list-style: none;
   padding: 0;
   font-size: 1.5em;
-  text-align: center
+  text-align: center;
 }
 .menu li {
-  margin-bottom: 1em
+  margin-bottom: 1em;
 }
 @media screen and (max-width: 768px) {
-  .icon, .contact {
+  .icon,
+  .contact {
     display: none;
   }
   .burger {
@@ -280,7 +283,7 @@ a {
 }
 @media screen and (min-width: 768px) {
   .burger {
-    visibility: hidden
+    visibility: hidden;
   }
 }
 @media screen and (max-width: 576px) {
@@ -288,7 +291,7 @@ a {
     justify-content: flex-start;
   }
   .navbar {
-    padding: 1em
+    padding: 1em;
   }
 }
 @media screen and (max-width: 396px) {

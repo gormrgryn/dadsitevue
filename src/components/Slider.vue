@@ -115,11 +115,7 @@ export default {
 .arrowright {
   transform: rotate(-45deg);
 }
-@media screen and (max-width: 768px) {
-  .slideshow {
-    height: 75vh;
-  }
-}
+
 @media screen and (max-width: 576px) {
   .titletxt {
     font-size: 1em;

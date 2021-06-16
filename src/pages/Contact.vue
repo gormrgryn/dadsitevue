@@ -60,14 +60,10 @@ export default {
         message: ""
       },
       errors: {},
-      result: ""
+      result: "",
+      process: false
     };
   },
-  // computed: {
-  //   errors() {
-  //     return this.$store.getters.getErrors
-  //   }
-  // },
   mounted() {
     if (document.querySelector(".info").offsetHeight) {
       this.$data.urls.forEach(j => {
@@ -100,40 +96,40 @@ export default {
       }
     },
     validate() {
-      const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      const res = re.test(String(this.values.email).toLowerCase());
-      let name;
-      let email;
-      let msg;
-      if (this.values.name.length === 0) {
-        this.errors.name = "Name must be non-empty";
-        name = false;
-      } else {
-        this.errors.name = "";
-        name = true;
-      }
-      if (!res) {
-        this.errors.email = "Invalid e-mail";
-        email = false;
-      } else {
-        this.errors.email = "";
-        email = true;
-      }
-      if (this.values.message.length === 0) {
-        this.errors.message = "Message must be non-empty";
-        msg = false;
-      } else {
-        this.errors.message = "";
-        msg = true;
-      }
-      if (name && email && msg) {
-        this.submit();
+      if (!this.process) {
+        const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        const email = re.test(String(this.values.email).toLowerCase());
+        let name;
+        let msg;
+        if (this.values.name.length === 0) {
+          this.errors.name = "Name must be non-empty";
+          name = false;
+        } else {
+          this.errors.name = "";
+          name = true;
+        }
+        if (!email) {
+          this.errors.email = "Invalid e-mail";
+        } else {
+          this.errors.email = "";
+        }
+        if (this.values.message.length === 0) {
+          this.errors.message = "Message must be non-empty";
+          msg = false;
+        } else {
+          this.errors.message = "";
+          msg = true;
+        }
+        if (name && email && msg) {
+          this.process = true
+          this.submit();
+        }
       }
     },
     submit() {
-      axios.post("http://localhost:3000/", this.values)
-        .then(res => {
-          console.log(res);
+      axios
+        .post("http://localhost:3000/", this.values)
+        .then(() => {
           this.result = "Your message was successfully sent";
         })
         .catch(err => {
@@ -144,6 +140,9 @@ export default {
           Object.keys(this.values).forEach(i => {
             this.values[i] = "";
           });
+          setTimeout(() => {
+            this.process = false
+          }, 1000);
         });
     }
   }
@@ -293,7 +292,7 @@ textarea:not(:placeholder-shown) ~ .ta-label {
 
 @media screen and (max-width: 768px) {
   .info,
-  span {
+  .span {
     display: none;
   }
   .contact {
