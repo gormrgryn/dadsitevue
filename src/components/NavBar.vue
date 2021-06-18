@@ -54,7 +54,7 @@ export default {
   watch: {
     check() {
       if (this.check) {
-        document.getElementById("app").style.overflowY = "hidden";
+        document.getElementById("body").style.overflowY = "hidden";
         let stylesheet = this.sheet;
         stylesheet.removeRule(0);
         stylesheet.insertRule(`
@@ -64,7 +64,7 @@ export default {
         `);
         this.$refs.menu.classList = "menu visible";
       } else {
-        document.getElementById("app").style.overflowY = "unset";
+        document.getElementById("body").style.overflowY = "unset";
         this.$refs.menu.classList = "menu";
       }
     }
