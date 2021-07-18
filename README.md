@@ -79,4 +79,4 @@ The goal of this project is to show my experience and skills in webdev (vue, dom
 
 Twitter - [@_gormargaryan](https://twitter.com/_gormargaryan) - margaryan.gor.55@gmail.com
 
-Project Link: [https://github.com/gormrgryn/mention-bot](https://github.com/gormrgryn/mention-bot)
+Project Link: [https://github.com/gormrgryn/dadsitevue](https://github.com/gormrgryn/dadsitevue)
