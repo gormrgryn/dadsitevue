@@ -1,6 +1,9 @@
 <template>
   <div>
-    <div class="navbar">
+    <div
+      class="navbar"
+      :class="{ 'navbar-black-bg': !isNavBarTransparent }"
+    >
       <h1>
         <span @click="uncheck">
           <router-link to="/">sitename</router-link>
@@ -18,13 +21,13 @@
         </li>
       </ul>
     </div>
-    <div class="burger" ref="burger">
+    <div class="burger" :class="{ 'burger-trans-bg': !isNavBarTransparent }">
       <input type="checkbox" v-model="check">
       <div></div>
       <div></div>
       <div></div>
     </div>
-    <div class="menu" ref="menu">
+    <div class="menu" ref="menu" :class="{ 'menu-visible': isMenuVisible }">
       <ul>
         <li>
           <span @click="uncheck">
@@ -48,7 +51,9 @@ export default {
     return {
       check: false,
       style: document.createElement("style"),
-      sheet: null
+      sheet: null,
+      isNavBarTransparent: true,
+      isMenuVisible: false
     };
   },
   watch: {
@@ -58,14 +63,14 @@ export default {
         let stylesheet = this.sheet;
         stylesheet.removeRule(0);
         stylesheet.insertRule(`
-          .visible {
+          .menu-visible {
             top: ${window.scrollY}px !important;
           }
         `);
-        this.$refs.menu.classList = "menu visible";
+        this.isMenuVisible = true;
       } else {
+        this.isMenuVisible = false;
         document.getElementById("body").style.overflowY = "unset";
-        this.$refs.menu.classList = "menu";
       }
     }
   },
@@ -90,12 +95,12 @@ export default {
       }
     `);
     stylesheet.insertRule(`
-      .btrans {
+      .burger-trans-bg {
         top: ${(navH - burg.offsetHeight - 16) / 2}px !important;
       }
     `);
     stylesheet.insertRule(`
-      .visible {
+      .menu-visible {
         top: 0;
       }
     `);
@@ -105,12 +110,9 @@ export default {
       let y = window.scrollY;
       let height = document.body.offsetHeight;
       if (y > height) {
-        let nav = document.querySelector(".navbar");
-        nav.classList = "navbar str";
-        document.querySelector(".burger").classList = "burger btrans";
+        this.isNavBarTransparent = false;
       } else if (y < height) {
-        document.querySelector(".burger").classList = "burger";
-        document.querySelector(".navbar").classList = "navbar trans";
+        this.isNavBarTransparent = true;
       }
     },
     uncheck() {
@@ -137,11 +139,9 @@ export default {
   font-size: 1.1em;
   -webkit-transition: all 0.3s ease;
   transition: all 0.2s ease;
-}
-.trans {
   background: none;
 }
-.str {
+.navbar-black-bg {
   background: rgba(0, 0, 0, 0.97);
   height: 4em;
 }
